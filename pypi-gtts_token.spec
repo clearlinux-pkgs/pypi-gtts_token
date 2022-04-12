@@ -4,7 +4,7 @@
 #
 Name     : pypi-gtts_token
 Version  : 1.1.4
-Release  : 27
+Release  : 28
 URL      : https://files.pythonhosted.org/packages/78/b4/e2306352c5b5d777c9d39cbf17f21b10be40cbe7271329473d424700aa41/gTTS-token-1.1.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/78/b4/e2306352c5b5d777c9d39cbf17f21b10be40cbe7271329473d424700aa41/gTTS-token-1.1.4.tar.gz
 Summary  : Calculates a token to run the Google Translate text to speech
@@ -14,9 +14,6 @@ Requires: pypi-gtts_token-license = %{version}-%{release}
 Requires: pypi-gtts_token-python = %{version}-%{release}
 Requires: pypi-gtts_token-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-Provides: gTTS-token
-Provides: gTTS-token-python
-Provides: gTTS-token-python3
 BuildRequires : pypi(requests)
 
 %description
@@ -59,7 +56,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641441789
+export SOURCE_DATE_EPOCH=1649757117
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
