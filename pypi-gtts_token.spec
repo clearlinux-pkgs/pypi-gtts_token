@@ -4,7 +4,7 @@
 #
 Name     : pypi-gtts_token
 Version  : 1.1.4
-Release  : 35
+Release  : 36
 URL      : https://files.pythonhosted.org/packages/78/b4/e2306352c5b5d777c9d39cbf17f21b10be40cbe7271329473d424700aa41/gTTS-token-1.1.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/78/b4/e2306352c5b5d777c9d39cbf17f21b10be40cbe7271329473d424700aa41/gTTS-token-1.1.4.tar.gz
 Summary  : Calculates a token to run the Google Translate text to speech
