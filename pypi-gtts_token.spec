@@ -4,7 +4,7 @@
 #
 Name     : pypi-gtts_token
 Version  : 1.1.4
-Release  : 36
+Release  : 37
 URL      : https://files.pythonhosted.org/packages/78/b4/e2306352c5b5d777c9d39cbf17f21b10be40cbe7271329473d424700aa41/gTTS-token-1.1.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/78/b4/e2306352c5b5d777c9d39cbf17f21b10be40cbe7271329473d424700aa41/gTTS-token-1.1.4.tar.gz
 Summary  : Calculates a token to run the Google Translate text to speech
@@ -15,6 +15,9 @@ Requires: pypi-gtts_token-python = %{version}-%{release}
 Requires: pypi-gtts_token-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 BuildRequires : pypi(requests)
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 ====
@@ -59,12 +62,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656402198
+export SOURCE_DATE_EPOCH=1672278451
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$FFLAGS -fno-lto "
-export FFLAGS="$FFLAGS -fno-lto "
-export CXXFLAGS="$CXXFLAGS -fno-lto "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -81,7 +84,7 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-gtts_token
-cp %{_builddir}/gTTS-token-1.1.4/LICENSE %{buildroot}/usr/share/package-licenses/pypi-gtts_token/748ee85e743c7323d44803cdba103206fdb58874
+cp %{_builddir}/gTTS-token-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-gtts_token/748ee85e743c7323d44803cdba103206fdb58874 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
